@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================================================
+  PACIFIC STATES UNIVERSITY — PERSONAL ACADEMIC & PROFESSIONAL PORTFOLIO
+  A single-file, backend-free website built for GitHub Pages.
+
+  ============================================================================
+  STUDENT INFORMATION — EDIT THIS SECTION
+  ============================================================================
+  Everything you need to personalize lives inside this one file. Look for
+  comments like:  EDIT: ...
+  throughout the HTML. The main things to change are:
+
+    1. <title> and meta tags below (your name + program)
+    2. HERO SECTION — your name, headline, photo, links, location
+    3. ABOUT SECTION — bio, academic background, interests, goals
+    4. EDUCATION — one card per school
+    5. SKILLS — technical + professional skill lists
+    6. PROJECTS — copy the project card block to add more projects
+    7. EXPERIENCE — copy the timeline block to add more jobs
+    8. RESEARCH / PUBLICATIONS — optional, delete or leave hidden if unused
+    9. CERTIFICATIONS & AWARDS
+   10. VOLUNTEERING & LEADERSHIP
+   11. RESUME — put your PDF at assets/resume.pdf
+   12. CONTACT — email, phone, location, social links
+
+  To HIDE a whole section (e.g. you have no publications yet), add the
+  attribute  hidden  to that <section> tag. The navigation bar will
+  automatically stop showing a link to it — see the JS at the bottom.
+
+  IMAGES: create a folder called "assets" next to this file and add:
+    assets/profile.jpg        (your headshot, square works best)
+    assets/project-1.jpg      (optional project screenshots)
+    assets/project-2.jpg
+    assets/resume.pdf         (your resume/CV)
+  If an image is missing, a clean placeholder is shown automatically —
+  nothing will look broken.
+============================================================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- EDIT: page title -->
+<title>Emir Sariev — [Program Name] | Pacific States University</title>
+<meta name="description" content="Personal academic and professional portfolio of Emir Sariev, [Program Name] student at Pacific States University.">
+<meta name="author" content="Emir Sariev">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Emir Sariev — [Program Name]">
+<meta property="og:description" content="Personal academic and professional portfolio of Emir Sariev, Pacific States University.">
+<meta property="og:image" content="assets/profile.jpg">
+<meta property="og:url" content="https://[username].github.io/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Emir Sariev — [Program Name]">
+<meta name="twitter:description" content="Personal academic and professional portfolio of Emir Sariev, Pacific States University.">
+<meta name="twitter:image" content="assets/profile.jpg">
+
+<!-- EDIT: replace with your final GitHub Pages URL -->
+<link rel="canonical" href="https://[username].github.io/">
+
+<!-- Fonts: Lora (serif, headings) + Inter (sans, body/UI) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons via cdnjs (Font Awesome Free) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-2ubL+cU9EESQyk4pnf6ULLzdWGmn9AliKz6nkGeMPu1BQyMJUwvcQhHyKS5wnyZP8f8ilYsRoUyoRvHUL77vqA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+:root{
+  --bg:#FAFAF7;
+  --bg-alt:#F2EEE5;
+  --surface:#FFFFFF;
+  --ink:#152233;
+  --ink-soft:#3D4A5C;
+  --muted:#6B7480;
+  --border:#E4DFD3;
+  --accent:#9C6B2E;
+  --accent-ink:#5C3F1B;
+  --accent-soft:#EFE1C8;
+  --link:#3A5A85;
+  --shadow:rgba(21,34,51,0.09);
+  --focus:#9C6B2E;
+  --radius-s:6px;
+  --radius-m:10px;
+  --maxw:1120px;
+  --serif:'Lora', Georgia, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#0D1319;
+  --bg-alt:#121A22;
+  --surface:#151E27;
+  --ink:#ECEDEA;
+  --ink-soft:#C2C9D1;
+  --muted:#8B95A1;
+  --border:#25313D;
+  --accent:#D3A45C;
+  --accent-ink:#F1DCB3;
+  --accent-soft:#2A2114;
+  --link:#8CB2E0;
+  --shadow:rgba(0,0,0,0.45);
+  --focus:#D3A45C;
+}
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background .25s ease, color .25s ease;
+}
+img{max-width:100%;display:block;}
+a{color:var(--link);text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);line-height:1.2;margin:0;font-weight:600;}
+p{margin:0 0 1em;color:var(--ink-soft);}
+ul{margin:0;padding:0;}
+li{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;}
+
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;
+  padding:.75rem 1.25rem;z-index:200;border-radius:0 0 var(--radius-s) 0;
+}
+.skip-link:focus{left:0;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;}
+.section{padding:5.5rem 0;border-top:1px solid var(--border);}
+.section:first-of-type{border-top:none;}
+.section-alt{background:var(--bg-alt);}
+.section-head{max-width:640px;margin:0 0 2.75rem;}
+.section-eyebrow{
+  font-family:var(--serif);font-style:italic;color:var(--accent);
+  font-size:1rem;margin:0 0 .35rem;
+}
+.section-title{font-size:clamp(1.6rem,3vw,2.1rem);}
+.section-sub{color:var(--muted);margin-top:.6rem;font-size:1.02rem;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.5rem;border-radius:var(--radius-s);
+  font-weight:600;font-size:.95rem;border:1px solid transparent;
+  transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px);}
+.btn-primary{background:var(--ink);color:var(--bg);}
+[data-theme="dark"] .btn-primary{background:var(--accent);color:#1a1207;}
+.btn-primary:hover{background:var(--accent);color:#1a1207;}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--border);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:.55rem 1rem;font-size:.85rem;}
+
+/* ==========================================================================
+   3. NAVIGATION
+   ========================================================================== */
+.nav{
+  position:sticky;top:0;z-index:100;background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+}
+.nav-brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--ink);}
+.nav-brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:1.9rem;align-items:center;}
+.nav-links a{
+  color:var(--ink-soft);font-size:.93rem;font-weight:500;padding:.3rem 0;
+  border-bottom:2px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--ink);text-decoration:none;border-color:var(--accent);}
+.nav-controls{display:flex;align-items:center;gap:.75rem;}
+.theme-toggle{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--border);
+  background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;
+}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.hamburger{
+  display:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);
+  background:var(--surface);color:var(--ink);align-items:center;justify-content:center;
+}
+.mobile-panel{
+  display:none;flex-direction:column;gap:0;background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+.mobile-panel a{
+  padding:1rem 1.5rem;color:var(--ink-soft);border-top:1px solid var(--border);font-weight:500;
+}
+.mobile-panel a:hover{color:var(--accent);text-decoration:none;}
+.mobile-panel.open{display:flex;}
+
+@media (max-width:860px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* ==========================================================================
+   4. HERO
+   ========================================================================== */
+.hero{padding:5rem 0 5.5rem;}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;
+}
+.hero-kicker{
+  font-family:var(--serif);font-style:italic;color:var(--accent);font-size:1.05rem;margin-bottom:.5rem;
+}
+.hero-name{font-size:clamp(2.1rem,5vw,3.2rem);letter-spacing:-.01em;}
+.hero-headline{
+  font-size:1.15rem;color:var(--ink-soft);margin-top:.9rem;font-weight:500;
+}
+.hero-intro{margin-top:1.1rem;max-width:52ch;color:var(--muted);}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.1rem;margin:1.4rem 0 1.9rem;}
+.hero-meta li{display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.92rem;}
+.hero-meta i{color:var(--accent);width:1em;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;}
+.hero-photo-wrap{
+  position:relative;justify-self:center;width:min(320px,80%);aspect-ratio:1/1;
+}
+.hero-photo{
+  width:100%;height:100%;object-fit:cover;border-radius:var(--radius-m);
+  border:1px solid var(--border);box-shadow:0 24px 48px -20px var(--shadow);
+}
+.hero-photo-frame{
+  position:absolute;inset:14px -14px -14px 14px;border:1.5px solid var(--accent);
+  border-radius:var(--radius-m);z-index:-1;
+}
+.photo-placeholder{
+  width:100%;height:100%;border-radius:var(--radius-m);border:1px dashed var(--border);
+  background:var(--bg-alt);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--muted);gap:.6rem;text-align:center;padding:1rem;font-size:.85rem;
+}
+.photo-placeholder i{font-size:2.4rem;color:var(--accent);}
+
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;text-align:left;}
+  .hero-photo-wrap{width:min(220px,55%);justify-self:start;order:-1;margin-bottom:1rem;}
+}
+
+/* ==========================================================================
+   5. ABOUT
+   ========================================================================== */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;}
+.about-cards{display:grid;gap:1rem;align-content:start;}
+.info-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  padding:1.25rem 1.4rem;
+}
+.info-card h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-family:var(--sans);font-weight:700;margin-bottom:.4rem;}
+.info-card p{margin:0;font-size:.93rem;color:var(--ink-soft);}
+@media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
+
+/* ==========================================================================
+   6. EDUCATION (timeline)
+   ========================================================================== */
+.timeline{position:relative;padding-left:2.1rem;}
+.timeline::before{
+  content:"";position:absolute;left:.4rem;top:.4rem;bottom:.4rem;width:1px;background:var(--border);
+}
+.timeline-item{position:relative;padding-bottom:2.6rem;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-dot{
+  position:absolute;left:-2.1rem;top:.3rem;width:.85rem;height:.85rem;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent);
+}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  padding:1.6rem 1.8rem;
+}
+.card-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;align-items:baseline;}
+.card-title{font-size:1.15rem;}
+.card-org{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:.2rem;}
+.card-date{color:var(--muted);font-size:.85rem;white-space:nowrap;font-family:var(--sans);}
+.card-sub{color:var(--muted);font-size:.9rem;margin-top:.3rem;}
+.card p{margin-top:.9rem;margin-bottom:0;}
+.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+.tag{
+  background:var(--accent-soft);color:var(--accent-ink);font-size:.78rem;font-weight:600;
+  padding:.3rem .65rem;border-radius:999px;
+}
+details.coursework{margin-top:1rem;}
+details.coursework summary{cursor:pointer;font-weight:600;font-size:.88rem;color:var(--link);}
+details.coursework ul{margin-top:.6rem;display:grid;grid-template-columns:1fr 1fr;gap:.35rem .8rem;}
+details.coursework li{color:var(--ink-soft);font-size:.87rem;position:relative;padding-left:1rem;}
+details.coursework li::before{content:"–";position:absolute;left:0;color:var(--accent);}
+
+/* ==========================================================================
+   7. SKILLS
+   ========================================================================== */
+.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+.skills-group{margin-bottom:2rem;}
+.skills-group:last-child{margin-bottom:0;}
+.skills-group h3{font-size:1rem;margin-bottom:1rem;font-family:var(--sans);font-weight:700;color:var(--ink-soft);}
+.badge-row{display:flex;flex-wrap:wrap;gap:.6rem;}
+.badge{
+  display:flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-s);padding:.55rem .9rem;font-size:.88rem;font-weight:500;color:var(--ink-soft);
+  transition:border-color .2s ease, color .2s ease;
+}
+.badge i{color:var(--accent);}
+.badge:hover{border-color:var(--accent);color:var(--ink);}
+@media (max-width:760px){.skills-cols{grid-template-columns:1fr;}}
+
+/* ==========================================================================
+   8. PROJECTS
+   ========================================================================== */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.8rem;}
+.project-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s ease, border-color .25s ease;
+}
+.project-card:hover{box-shadow:0 18px 36px -18px var(--shadow);border-color:var(--accent);}
+.project-media{aspect-ratio:16/10;background:var(--bg-alt);position:relative;overflow:hidden;}
+.project-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.project-card:hover .project-media img{transform:scale(1.04);}
+.project-media .photo-placeholder{position:absolute;inset:0;border:none;border-radius:0;}
+.project-body{padding:1.5rem 1.6rem;display:flex;flex-direction:column;flex:1;}
+.project-role{color:var(--muted);font-size:.82rem;margin-bottom:.3rem;}
+.project-links{display:flex;gap:1.1rem;margin-top:auto;padding-top:1rem;font-size:.87rem;font-weight:600;}
+.project-links a{display:flex;align-items:center;gap:.4rem;}
+
+/* ==========================================================================
+   9. EXPERIENCE (timeline reuse)
+   ========================================================================== */
+.exp-achievements{margin-top:.8rem;padding-left:0;}
+.exp-achievements li{position:relative;padding-left:1.1rem;color:var(--ink-soft);font-size:.92rem;margin-bottom:.4rem;}
+.exp-achievements li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+
+/* ==========================================================================
+   10. PUBLICATIONS (citation style)
+   ========================================================================== */
+.pub-item{
+  border-left:3px solid var(--accent-soft);padding:.2rem 0 .2rem 1.3rem;margin-bottom:1.6rem;
+}
+.pub-item:last-child{margin-bottom:0;}
+.pub-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:.25rem;}
+.pub-meta{color:var(--muted);font-size:.87rem;margin-bottom:.5rem;}
+.pub-meta em{color:var(--ink-soft);font-style:italic;}
+.pub-abstract{font-size:.9rem;color:var(--ink-soft);margin-bottom:.6rem;}
+.pub-links{display:flex;gap:1.1rem;font-size:.85rem;font-weight:600;}
+
+/* ==========================================================================
+   11. CERT / AWARDS / VOLUNTEER grids
+   ========================================================================== */
+.simple-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;}
+.simple-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  padding:1.3rem 1.4rem;
+}
+.simple-card i.card-icon{color:var(--accent);font-size:1.3rem;margin-bottom:.6rem;display:block;}
+.simple-card h4{font-size:1rem;margin-bottom:.2rem;}
+.simple-card .card-org{margin-top:0;}
+.simple-card .card-date{display:block;margin-top:.25rem;}
+
+/* ==========================================================================
+   12. RESUME
+   ========================================================================== */
+.resume-box{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  padding:2.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;
+}
+.resume-box h3{font-size:1.3rem;margin-bottom:.4rem;}
+.resume-box p{margin:0;max-width:46ch;}
+.resume-actions{display:flex;gap:.9rem;flex-wrap:wrap;}
+
+/* ==========================================================================
+   13. CONTACT
+   ========================================================================== */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start;}
+.contact-list{display:grid;gap:.9rem;}
+.contact-row{
+  display:flex;align-items:center;gap:.9rem;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-m);padding:1rem 1.2rem;
+}
+.contact-row i{color:var(--accent);width:1.2em;font-size:1.05rem;}
+.contact-row a, .contact-row span{color:var(--ink-soft);font-size:.94rem;}
+.social-icons{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.4rem;}
+.social-icons a{
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-soft);
+}
+.social-icons a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+@media (max-width:760px){.contact-grid{grid-template-columns:1fr;}}
+
+/* ==========================================================================
+   14. FOOTER
+   ========================================================================== */
+footer{border-top:1px solid var(--border);padding:2.2rem 0;}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;display:flex;flex-wrap:wrap;
+  justify-content:space-between;gap:.6rem;color:var(--muted);font-size:.85rem;
+}
+.footer-inner strong{color:var(--ink-soft);}
+
+/* Reveal-on-load (single orchestrated hero entrance only) */
+.hero-anim{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards;}
+.hero-anim:nth-child(1){animation-delay:.05s;}
+.hero-anim:nth-child(2){animation-delay:.15s;}
+@keyframes rise{to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============================================================================
+     NAVIGATION
+============================================================================ -->
+<header class="nav">
+  <div class="nav-inner">
+    <!-- EDIT: your name / brand mark -->
+    <a href="#home" class="nav-brand">Emir Sariev</a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home" data-section="home">Home</a>
+      <a href="#about" data-section="about">About</a>
+      <a href="#education" data-section="education">Education</a>
+      <a href="#skills" data-section="skills">Skills</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#research" data-section="research">Research</a>
+      <a href="#publications" data-section="publications">Publications</a>
+      <a href="#contact" data-section="contact">Contact</a>
+    </nav>
+    <div class="nav-controls">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile">
+    <a href="#home" data-section="home">Home</a>
+    <a href="#about" data-section="about">About</a>
+    <a href="#education" data-section="education">Education</a>
+    <a href="#skills" data-section="skills">Skills</a>
+    <a href="#projects" data-section="projects">Projects</a>
+    <a href="#experience" data-section="experience">Experience</a>
+    <a href="#research" data-section="research">Research</a>
+    <a href="#publications" data-section="publications">Publications</a>
+    <a href="#contact" data-section="contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================================================================
+       HERO
+  ============================================================================ -->
+  <section class="section hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <!-- EDIT: headline / tagline -->
+        <p class="hero-kicker hero-anim">Personal Website · Pacific States University</p>
+        <h1 class="hero-name hero-anim">Hello, I'm Emir Sariev</h1>
+        <p class="hero-headline hero-anim">[Program Name] Student · [Focus Area / Interest] · Future Professional</p>
+        <!-- EDIT: 2-3 sentence introduction -->
+        <p class="hero-intro hero-anim">
+          [Write a short, confident introduction here — one or two sentences about who you are,
+          what you study, and what you're looking for: internships, research, or full-time roles.]
+        </p>
+        <ul class="hero-meta hero-anim">
+          <li><i class="fa-solid fa-location-dot"></i>[City, State]</li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:[email@example.com]">[email@example.com]</a></li>
+          <li><i class="fa-brands fa-linkedin"></i><a href="https://linkedin.com/in/[username]" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><i class="fa-brands fa-github"></i><a href="https://github.com/[username]" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <div class="hero-actions hero-anim">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <!-- EDIT: point to your resume file in /assets -->
+          <a href="assets/resume.pdf" class="btn btn-outline" download><i class="fa-solid fa-download"></i>Download Resume</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap hero-anim">
+        <div class="hero-photo-frame"></div>
+        <!-- EDIT: replace src with assets/profile.jpg once you add your photo.
+             If the image fails to load, an elegant placeholder is shown automatically. -->
+        <img src="assets/profile.jpg" alt="Portrait of Emir Sariev" class="hero-photo"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo-placeholder',innerHTML:'<i class=\'fa-solid fa-user\'></i><span>Add your photo at<br><code>assets/profile.jpg</code></span>'}))">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       ABOUT
+  ============================================================================ -->
+  <section class="section section-alt" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">A little about me</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <!-- EDIT: short biography, 2-4 paragraphs -->
+          <p>[Write your biography here. Share your academic path, what drew you to your field,
+          and what makes you, you. Keep it authentic and specific — avoid generic statements.]</p>
+          <p>[Continue with a second paragraph if useful — perhaps about a formative project,
+          research experience, or what you're currently focused on learning.]</p>
+        </div>
+        <div class="about-cards">
+          <div class="info-card">
+            <h4>Academic Background</h4>
+            <!-- EDIT -->
+            <p>[Summarize your academic background in one or two sentences.]</p>
+          </div>
+          <div class="info-card">
+            <h4>Career Interests</h4>
+            <!-- EDIT -->
+            <p>[List the fields, roles, or industries you're interested in.]</p>
+          </div>
+          <div class="info-card">
+            <h4>Professional Goals</h4>
+            <!-- EDIT -->
+            <p>[Describe your short- and long-term professional goals.]</p>
+          </div>
+          <div class="info-card">
+            <h4>Personal Interests</h4>
+            <!-- EDIT -->
+            <p>[Share a few interests outside academics — this helps you feel human to readers.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       EDUCATION
+  ============================================================================ -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Education</p>
+        <h2 class="section-title">Academic background</h2>
+      </div>
+      <div class="timeline">
+
+        <!-- EDUCATION CARD — copy this whole <div class="timeline-item"> block to add another school -->
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">Pacific States University</h3>
+                <!-- EDIT: degree and major -->
+                <p class="card-org">[Degree] in [Major]</p>
+              </div>
+              <!-- EDIT: dates -->
+              <span class="card-date">[Start Year] – [Expected Graduation Year]</span>
+            </div>
+            <p class="card-sub">GPA: [Optional] &nbsp;·&nbsp; [City, State]</p>
+            <details class="coursework">
+              <summary>Relevant coursework & achievements</summary>
+              <ul>
+                <!-- EDIT: list your coursework -->
+                <li>[Course Name]</li>
+                <li>[Course Name]</li>
+                <li>[Course Name]</li>
+                <li>[Course Name]</li>
+              </ul>
+              <p style="margin-top:.8rem;">[Optional: academic achievements, honors, or Dean's List mentions.]</p>
+            </details>
+          </div>
+        </div>
+        <!-- END EDUCATION CARD -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       SKILLS
+  ============================================================================ -->
+  <section class="section section-alt" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Skills</p>
+        <h2 class="section-title">What I bring</h2>
+        <p class="section-sub">Skills are listed without inflated ratings — context and projects speak louder than percentages.</p>
+      </div>
+      <div class="skills-cols">
+        <div>
+          <div class="skills-group">
+            <h3>Programming & Software</h3>
+            <!-- EDIT: add/remove badges freely -->
+            <div class="badge-row">
+              <span class="badge"><i class="fa-solid fa-code"></i>[Language]</span>
+              <span class="badge"><i class="fa-solid fa-code"></i>[Language]</span>
+              <span class="badge"><i class="fa-solid fa-laptop-code"></i>[Software/Tool]</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <h3>Databases & Cloud</h3>
+            <div class="badge-row">
+              <span class="badge"><i class="fa-solid fa-database"></i>[Database]</span>
+              <span class="badge"><i class="fa-solid fa-cloud"></i>[Cloud Platform]</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <h3>Networking & Cybersecurity</h3>
+            <div class="badge-row">
+              <span class="badge"><i class="fa-solid fa-network-wired"></i>[Skill]</span>
+              <span class="badge"><i class="fa-solid fa-shield-halved"></i>[Skill]</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <h3>AI/ML & Data Analytics</h3>
+            <div class="badge-row">
+              <span class="badge"><i class="fa-solid fa-brain"></i>[Skill]</span>
+              <span class="badge"><i class="fa-solid fa-chart-line"></i>[Skill]</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="skills-group">
+            <h3>Professional Skills</h3>
+            <div class="badge-row">
+              <span class="badge"><i class="fa-solid fa-comments"></i>Communication</span>
+              <span class="badge"><i class="fa-solid fa-users"></i>Leadership</span>
+              <span class="badge"><i class="fa-solid fa-people-group"></i>Teamwork</span>
+              <span class="badge"><i class="fa-solid fa-puzzle-piece"></i>Problem Solving</span>
+              <span class="badge"><i class="fa-solid fa-diagram-project"></i>Project Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       PROJECTS
+  ============================================================================ -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Projects</p>
+        <h2 class="section-title">Selected work</h2>
+      </div>
+      <div class="project-grid">
+
+        <!-- PROJECT CARD — copy this whole <article class="project-card"> block to add more projects -->
+        <article class="project-card">
+          <div class="project-media">
+            <!-- EDIT: optional image at assets/project-1.jpg -->
+            <img src="assets/project-1.jpg" alt="Screenshot of [Project Title]"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo-placeholder',innerHTML:'<i class=\'fa-solid fa-diagram-project\'></i><span>Add an image at assets/project-1.jpg</span>'}))">
+          </div>
+          <div class="project-body">
+            <h3 class="card-title">[Project Title]</h3>
+            <p class="project-role">[Your Role] · [Month Year]</p>
+            <p>[Brief description of the project: the problem it solves and what makes it notable.]</p>
+            <div class="tag-row">
+              <span class="tag">[Tech 1]</span>
+              <span class="tag">[Tech 2]</span>
+              <span class="tag">[Tech 3]</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/[username]/[repo]" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Code</a>
+              <a href="#" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live Demo</a>
+            </div>
+          </div>
+        </article>
+        <!-- END PROJECT CARD -->
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="assets/project-2.jpg" alt="Screenshot of [Project Title]"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo-placeholder',innerHTML:'<i class=\'fa-solid fa-diagram-project\'></i><span>Add an image at assets/project-2.jpg</span>'}))">
+          </div>
+          <div class="project-body">
+            <h3 class="card-title">[Project Title]</h3>
+            <p class="project-role">[Your Role] · [Month Year]</p>
+            <p>[Brief description of the project: the problem it solves and what makes it notable.]</p>
+            <div class="tag-row">
+              <span class="tag">[Tech 1]</span>
+              <span class="tag">[Tech 2]</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/[username]/[repo]" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Code</a>
+              <a href="#" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       EXPERIENCE
+  ============================================================================ -->
+  <section class="section section-alt" id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Experience</p>
+        <h2 class="section-title">Where I've worked</h2>
+      </div>
+      <div class="timeline">
+
+        <!-- EXPERIENCE CARD — copy this whole <div class="timeline-item"> block to add another role -->
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">[Job Title]</h3>
+                <p class="card-org">[Company / Organization] · [City, State]</p>
+              </div>
+              <span class="card-date">[Month Year] – [Month Year]</span>
+            </div>
+            <ul class="exp-achievements">
+              <!-- EDIT: focus on accomplishments, not just duties -->
+              <li>[Accomplishment — quantify impact where possible.]</li>
+              <li>[Accomplishment — what did you build, improve, or deliver?]</li>
+              <li>[Accomplishment.]</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">[Tech/Tool]</span>
+              <span class="tag">[Tech/Tool]</span>
+            </div>
+          </div>
+        </div>
+        <!-- END EXPERIENCE CARD -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       RESEARCH (optional — add "hidden" to <section> to remove from nav & page)
+  ============================================================================ -->
+  <section class="section" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Research</p>
+        <h2 class="section-title">Research experience</h2>
+      </div>
+      <div class="about-cards" style="grid-template-columns:1fr 1fr;display:grid;gap:1rem;">
+        <div class="info-card">
+          <h4>Research Interests</h4>
+          <!-- EDIT -->
+          <p>[List your research interests or areas of focus.]</p>
+        </div>
+        <div class="info-card">
+          <h4>Research Assistant Experience</h4>
+          <!-- EDIT -->
+          <p>[Lab/PI name, institution, dates, and a short summary of your role.]</p>
+        </div>
+      </div>
+      <div class="timeline" style="margin-top:1.8rem;">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">[Research Project Title]</h3>
+                <p class="card-org">[Lab / Department / Advisor]</p>
+              </div>
+              <span class="card-date">[Year] – [Year]</span>
+            </div>
+            <p>[Short description of the research project, methods, and outcomes.]</p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>Project Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem;color:var(--muted);font-size:.85rem;">
+        Not doing research yet? Add <code>hidden</code> to this section's opening tag to remove it from the site.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       PUBLICATIONS (optional — add "hidden" to <section> to remove from nav & page)
+  ============================================================================ -->
+  <section class="section section-alt" id="publications">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Publications</p>
+        <h2 class="section-title">Papers & presentations</h2>
+      </div>
+
+      <!-- PUBLICATION ITEM — copy this block to add more publications -->
+      <div class="pub-item">
+        <p class="pub-title">[Paper Title]</p>
+        <p class="pub-meta">[Author 1], [Author 2], [Author 3] — <em>[Journal / Conference Name]</em>, [Year]</p>
+        <p class="pub-abstract">[Abstract or one-sentence summary of the paper.]</p>
+        <div class="pub-links">
+          <a href="#" target="_blank" rel="noopener">DOI</a>
+          <a href="#" target="_blank" rel="noopener">PDF</a>
+          <a href="#" target="_blank" rel="noopener">Publisher</a>
+        </div>
+      </div>
+      <!-- END PUBLICATION ITEM -->
+
+      <p style="margin-top:.5rem;color:var(--muted);font-size:.85rem;">
+        No publications yet? Add <code>hidden</code> to this section's opening tag to remove it from the site.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       CERTIFICATIONS & AWARDS
+  ============================================================================ -->
+  <section class="section" id="certifications">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Certifications & Awards</p>
+        <h2 class="section-title">Recognition</h2>
+      </div>
+      <div class="simple-grid">
+        <!-- EDIT: copy simple-card blocks to add more certifications/awards -->
+        <div class="simple-card">
+          <i class="fa-solid fa-certificate card-icon"></i>
+          <h4>[Certification Name]</h4>
+          <p class="card-org">[Issuing Organization]</p>
+          <span class="card-date">[Month Year]</span>
+          <div style="margin-top:.6rem;"><a href="#" target="_blank" rel="noopener" style="font-size:.85rem;font-weight:600;">View Credential →</a></div>
+        </div>
+        <div class="simple-card">
+          <i class="fa-solid fa-trophy card-icon"></i>
+          <h4>[Award Name]</h4>
+          <p class="card-org">[Organization]</p>
+          <span class="card-date">[Month Year]</span>
+          <p style="margin-top:.5rem;font-size:.87rem;">[Short description of the award.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       VOLUNTEERING & LEADERSHIP (optional — add "hidden" to <section> to remove)
+  ============================================================================ -->
+  <section class="section section-alt" id="volunteering">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Volunteering & Leadership</p>
+        <h2 class="section-title">Beyond the classroom</h2>
+      </div>
+      <div class="simple-grid">
+        <div class="simple-card">
+          <i class="fa-solid fa-people-roof card-icon"></i>
+          <h4>[Organization / Club Name]</h4>
+          <p class="card-org">[Your Role]</p>
+          <span class="card-date">[Year] – Present</span>
+          <p style="margin-top:.5rem;font-size:.87rem;">[Short description of your involvement and impact.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       RESUME
+  ============================================================================ -->
+  <section class="section" id="resume">
+    <div class="wrap">
+      <div class="resume-box">
+        <div>
+          <h3>Resume / CV</h3>
+          <p>The full picture of my education, experience, and skills in one document.</p>
+        </div>
+        <div class="resume-actions">
+          <!-- EDIT: place your file at assets/resume.pdf — the page works even if it's missing -->
+          <a href="assets/resume.pdf" class="btn btn-primary" download><i class="fa-solid fa-download"></i>Download Resume</a>
+          <a href="assets/resume.pdf" class="btn btn-outline" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i>View Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================
+       CONTACT
+  ============================================================================ -->
+  <section class="section section-alt" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Contact</p>
+        <h2 class="section-title">Interested in connecting?</h2>
+        <p class="section-sub">Feel free to reach out regarding internships, employment, research, projects, or collaboration.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-list">
+          <div class="contact-row">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:[email@example.com]">[email@example.com]</a>
+          </div>
+          <!-- EDIT: optional phone — delete this row if you'd rather not list a number -->
+          <div class="contact-row">
+            <i class="fa-solid fa-phone"></i>
+            <span>[Optional Phone Number]</span>
+          </div>
+          <div class="contact-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>[City, State]</span>
+          </div>
+          <a href="mailto:[email@example.com]" class="btn btn-primary" style="margin-top:.5rem;width:fit-content;">
+            <i class="fa-solid fa-paper-plane"></i>Say Hello
+          </a>
+        </div>
+        <div>
+          <p style="color:var(--ink-soft);margin-bottom:.5rem;font-weight:600;">Find me elsewhere</p>
+          <!-- EDIT: only keep the links you actually use — delete the rest -->
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/[username]" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/[username]" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=[id]" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="https://orcid.org/[id]" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+            <a href="https://researchgate.net/profile/[username]" target="_blank" rel="noopener" aria-label="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
+            <a href="https://[yourportfolio].com" target="_blank" rel="noopener" aria-label="Personal portfolio"><i class="fa-solid fa-globe"></i></a>
+            <a href="https://x.com/[username]" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================================
+     FOOTER
+============================================================================ -->
+<footer>
+  <div class="footer-inner">
+    <span>&copy; <span id="year"></span> <strong>Emir Sariev</strong>. All rights reserved.</span>
+    <span>Personal Website | Pacific States University — this site is independently maintained by the student and is not an official PSU publication.</span>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   JAVASCRIPT
+   Handles: dark mode + persistence, mobile menu, smooth-scroll active link
+   highlighting, auto-hiding nav items whose sections are hidden, and the
+   current year in the footer. No backend, no external state.
+   ========================================================================== */
+(function(){
+  "use strict";
+
+  // ---- Footer year -------------------------------------------------------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Dark mode ----------------------------------------------------------
+  var root = document.documentElement;
+  var toggleBtn = document.getElementById('themeToggle');
+  var themeIcon = document.getElementById('themeIcon');
+  var STORAGE_KEY = 'psu-portfolio-theme';
+
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      root.setAttribute('data-theme','dark');
+      themeIcon.className = 'fa-solid fa-sun';
+    } else {
+      root.removeAttribute('data-theme');
+      themeIcon.className = 'fa-solid fa-moon';
+    }
+  }
+
+  var saved = null;
+  try{ saved = localStorage.getItem(STORAGE_KEY); }catch(e){}
+  if(saved){
+    applyTheme(saved);
+  } else {
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  toggleBtn.addEventListener('click', function(){
+    var isDark = root.getAttribute('data-theme') === 'dark';
+    var next = isDark ? 'light' : 'dark';
+    applyTheme(next);
+    try{ localStorage.setItem(STORAGE_KEY, next); }catch(e){}
+  });
+
+  // ---- Mobile menu ---------------------------------------------------------
+  var hamburger = document.getElementById('hamburger');
+  var mobilePanel = document.getElementById('mobilePanel');
+  hamburger.addEventListener('click', function(){
+    var open = mobilePanel.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  });
+  mobilePanel.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobilePanel.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+  });
+
+  // ---- Auto-hide nav links for hidden/empty sections -----------------------
+  // If you add the "hidden" attribute to a <section>, its nav link disappears.
+  document.querySelectorAll('a[data-section]').forEach(function(link){
+    var id = link.getAttribute('data-section');
+    var target = document.getElementById(id);
+    if(!target || target.hasAttribute('hidden')){
+      link.style.display = 'none';
+    }
+  });
+
+  // ---- Active link highlighting on scroll -----------------------------------
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main .section[id]'));
+  var navAnchors = document.querySelectorAll('.nav-links a[data-section]');
+  if('IntersectionObserver' in window && sections.length){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          navAnchors.forEach(function(a){
+            a.classList.toggle('active', a.getAttribute('data-section') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(sec){ observer.observe(sec); });
+  }
+})();
+</script>
+</body>
+</html>
